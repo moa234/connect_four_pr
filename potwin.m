@@ -8,7 +8,7 @@ count1 = 0;
 count2 = 0;
 
 %loop to check for winning place horizontally
-for r = 6:-1:1    
+for r = 6:-1:1
     for c = 1:4
         will = board(r, c:c+3);   %record any 4 adjacent horizontal chips
         for k = 1:4   % count number of zeros, ones and twos in the selected 4
@@ -20,9 +20,9 @@ for r = 6:-1:1
                 count2 = count2 + 1;
             end
         end
-        if count0 == 1 && (count1 == 3 || count2 == 3)   % check if these four can have a winning move 
+        if count0 == 1 && (count1 == 3 || count2 == 3)   % check if these four can have a winning move
             col = c + (find(will == 0)-1);               % record the free row and column
-            row = r;   
+            row = r;
             break;
         end
     end
@@ -61,7 +61,7 @@ for r = 6:-1:4
         end
         if count0 == 1 && (count1 == 3 || count2 == 3)   % check if these four can have a winning move  (three places has the same chip type and one free)
             col = c + (find(will == 0)-1);               % record the free row and column
-            row = r - (find(will == 0)-1); 
+            row = r - (find(will == 0)-1);
             break;
         end
     end
@@ -74,7 +74,7 @@ end
 for r = 6:-1:4
     for c = 7:-1:4
         will = [board(r,c), board(r-1,c-1),board(r-2,c-2),board(r-3,c-3)];   %record 4 chips reverse diagonally (\) alligned
-        for k = 1:4   % count number of zeros, ones and twos in the selected 4                       
+        for k = 1:4   % count number of zeros, ones and twos in the selected 4
             if will(k) == 0
                 count0 = count0 + 1;
             elseif will(k) == 1
