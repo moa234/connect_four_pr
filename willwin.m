@@ -1,5 +1,5 @@
 function [col,row] = willwin(board)
-%this function searches for a potential winning place
+%this function searches for a potential winning places
 %made by moaaz tarek
 %date 9/1/2021
 
