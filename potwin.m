@@ -6,6 +6,8 @@ function [col,row] = potwin(board)
 count0 = 0;
 count1 = 0;
 count2 = 0;
+col = 0;
+row = 0;
 
 %loop to check for winning place horizontally
 for r = 6:-1:1
@@ -23,26 +25,29 @@ for r = 6:-1:1
         if count0 == 1 && (count1 == 3 || count2 == 3)   % check if these four can have a winning move
             col = c + (find(will == 0)-1);               % record the free row and column
             row = r;
-            break;
+            return;
         end
-    end
-    if count0 == 1 && (count1 == 3 || count2 == 3)   % if a winning move is found exit the entire loop
-        break;
     end
 end
 
 %loop to check for winning place vertically
 for r = 6:-1:4
     for c = 1:7
-        will = board(r:r-3, c);   %record 4 vertical chips
-        if (will(1:3) == 1 || will(1:3) == 2) && will(4) == 0   %check if there is a freeplay on top of 3 exact chips
-            col = c;                                            % record the free row and column
-            row = r - 3;
-            break;
+        will = [board(r,c), board(r-1,c), board(r-2,c), board(r-3,c)];   %record 4 vertical chips
+        for k = 1:4   % count number of zeros, ones and twos in the selected 4
+            if will(k) == 0
+                count0 = count0 + 1;
+            elseif will(k) == 1
+                count1 = count1 + 1;
+            else
+                count2 = count2 + 1;
+            end
         end
-    end
-    if (will(1:3) == 1 || will(1:3) == 2) && will(4) == 0   % if a winning move is found exit the entire loop
-        break;
+        if count0 == 1 && (count1 == 3 || count2 == 3)   % check if these four can have a winning move
+            col = c ;               % record the free row and column
+            row = r-3 ;
+            return;
+        end
     end
 end
 
@@ -62,11 +67,8 @@ for r = 6:-1:4
         if count0 == 1 && (count1 == 3 || count2 == 3)   % check if these four can have a winning move  (three places has the same chip type and one free)
             col = c + (find(will == 0)-1);               % record the free row and column
             row = r - (find(will == 0)-1);
-            break;
+            return;
         end
-    end
-    if count0 == 1 && (count1 == 3 || count2 == 3)    % if a winning move is found exit the entire loop
-        break;
     end
 end
 
@@ -86,11 +88,8 @@ for r = 6:-1:4
         if count0 == 1 && (count1 == 3 || count2 == 3)   % check if these four can have a winning move  (three places has the same chip type and one free)
             col = c - (find(will == 0)-1);               % record the free row and column
             row = r - (find(will == 0)-1);
-            break;
+            return;
         end
-    end
-    if count0 == 1 && (count1 == 3 || count2 == 3)   % if a winning move is found exit the entire loop
-        break;
     end
 end
 end
