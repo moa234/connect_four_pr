@@ -46,6 +46,7 @@ while 1
             board = complay(board);
             [win,player] = check_win(board);
             full = board_full(board);
+            savetable(board);
         end
     end
     if full
@@ -63,7 +64,7 @@ while 1
         if again == 'n'
             break;
         else
-            board = restarting();
+            board = restarting(board);
             mode = input('Do you wish to player against a friend or a computer (P for player and C for computer): ','s');
             while mode ~= 'c' && mode ~= 'p'
                 mode = input('enter either c to play against a computer or p to play againt a friend: ','s');
