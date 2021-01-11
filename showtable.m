@@ -1,4 +1,4 @@
-function Showtable ( table )
+function showtable ( table )
 % this function is usd to show the table that player will play on it and the table is the matrix that contain the data of the player 
 %made by diana tarek  
 
