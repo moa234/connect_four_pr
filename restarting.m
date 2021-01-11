@@ -1,4 +1,4 @@
-%This function is for restarting the board at first time
+%restarting is a function to provide a clear neat board again if the player(s) wishes to play again.
 function board = restarting(board)
 for i=1:6
     for j=1:7
