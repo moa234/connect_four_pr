@@ -9,10 +9,16 @@ if col ~=0 && row ~=0
         board(row,col) = 2;
     elseif board(row+1,col) ~=0
         board(row,col) = 2;
+    else
+        col = ceil(rand()*10);
+        while col > 7 || board(1,col) ~=0
+            col = ceil(rand()*10);
+        end
+        board = whichRowDropping(board,2,col);
     end
 else
     col = ceil(rand()*10);
-    while col > 7
+    while col > 7 || board(1,col) ~=0
         col = ceil(rand()*10);
     end
     board = whichRowDropping(board,2,col);

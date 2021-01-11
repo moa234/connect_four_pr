@@ -48,8 +48,8 @@ end
  %made by Abdelrahman Hamdy 
  %DATE 10\1\2020
  
-for col=1:4
-    for row=6:-1:4
+for row=6:-1:4
+    for col=1:4
         if board(row,col)==1 && board(row-1,col+1)==1 && board(row-2,col+2)==1 && board(row-3,col+3)==1
             % to check if there is 4 similar in a diagonal// for player 1
             win=1;

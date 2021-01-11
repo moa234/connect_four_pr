@@ -4,14 +4,23 @@ clc
 
 win = 0;
 full = 0;
-board(1:6,1:7)=0;
-savetable(board);
 colour = ['B','Y'];
+
+
 
 mode = input('Do you wish to player against a friend or a computer (P for player and C for computer): ','s');
 while mode ~= 'c' && mode ~= 'p'
     mode = input('enter either c to play against a computer or p to play againt a friend: ','s');
 end
+
+contin = input('would you like to continue last game (Y/N): ','s');
+if contin == 'y'
+    board = xlsread('table.xlsx');
+else
+    board(1:6,1:7)=0;
+    savetable(board);
+end
+
 
 while 1
     if mode == 'p'
@@ -33,11 +42,10 @@ while 1
         [win,player] = check_win(board);
         full = board_full(board);
         savetable(board);
-        board = complay(board);
-        [win,player] = check_win(board);
-        full = board_full(board);
-        if win || full
-            break;
+        if ~win
+            board = complay(board);
+            [win,player] = check_win(board);
+            full = board_full(board);
         end
     end
     if full
@@ -56,7 +64,7 @@ while 1
             break;
         else
             board = restarting();
-            mode = input('Do you wish to player against a friend or a computer (P for player and C for computer: )','s');
+            mode = input('Do you wish to player against a friend or a computer (P for player and C for computer): ','s');
             while mode ~= 'c' && mode ~= 'p'
                 mode = input('enter either c to play against a computer or p to play againt a friend: ','s');
             end
