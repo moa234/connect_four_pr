@@ -7,15 +7,19 @@ function chosencolumn=wheredropping(table, playerplaying, playercolour)
 
 fprintf('%d''s turn now with colour %c\n',playerplaying,playercolour)
 %next is where he will drop
-chosencolumn=input('Enter a column number you wish to drop in: ');
+chosencolumn=input('Enter a column number you wish to drop in: ','s');
+chosencolumn=str2double(chosencolumn);
 while chosencolumn ~= [1:7] 
-    chosencolumn=input('Enter a column number between 1 & 7 please: ');
+    chosencolumn=input('Enter a column number between 1 & 7 please: ','s');
+    chosencolumn=str2double(chosencolumn);
 end
 %next is checking if the column he/she chose is already full
 while table(1, chosencolumn)==1 || table(1, chosencolumn)==2
-    chosencolumn=input('This column is full please enter another column number: ');
-    while chosencolumn ~= [1:7] 
-        chosencolumn=input('Enter a column number between 1 & 7 please: ');
+    chosencolumn=input('This column is full please enter another column number: ','s');
+    chosencolumn=str2double(chosencolumn);
+    while chosencolumn ~= [1:7]
+        chosencolumn=input('Enter a column number between 1 & 7 please: ','s');
+        chosencolumn=str2double(chosencolumn);
     end
 end
 end
