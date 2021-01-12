@@ -31,10 +31,10 @@ for r = 6:-1:1
             col = c + (find(will == 0)-1);               % record the free row and column
             row = r;
             if row ~= 6
-                if board(row+1,col) ~=0
+                if board(row+1,col) ~=0    %check if this winning move is playable then return the values
                     return;
                 else
-                    break
+                    break   % if not playable checks for other playable winning moves
                 end
             else
                 return
