@@ -1,13 +1,14 @@
-
 function [win,player]=check_win(board)
-%check_win_row
+%connect 4
+%made by Abdelrahman Hamdy
+%code:1200906
+%email : abdelrahman.osman02@eng-st.cu.edu.eg
 %this function checks potintial win in rows
-%made by Abdelrahman Hamdy 
-%DATE 10\1\2020
 
 win = 0;
 player = 0;
 
+%check_win_row
 for row=1:6  
     for col=1:4
         if board(row,col)==1 && board(row,col+1)==1 && board(row,col+2)==1 && board(row,col+3)==1 
@@ -24,9 +25,6 @@ end
 
 
 %check_win_column
-%this function checks potintial win in column
-%made by Abdelrahman Hamdy 
-%DATE 10\1\2020
 
 for col=1:7
     for row=1:3
@@ -44,9 +42,6 @@ end
 
 
 %check_win_diagonal(/)
-%this function checks potintial win in columns
- %made by Abdelrahman Hamdy 
- %DATE 10\1\2020
  
 for row=6:-1:4
     for col=1:4
@@ -64,9 +59,6 @@ end
 
 
 %check_win_diagonal(\)
-%this function checks potintial win in columns
- %made by Abdelrahman Hamdy 
- %DATE 10\1\2020
 
   for row=6:-1:4
       for col=7:-1:4

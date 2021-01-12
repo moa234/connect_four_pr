@@ -1,6 +1,10 @@
 function showtable ( table )
+%connect4
+%made by : diana tarek 
+%code: 1200934
+%email: diana.akrab01@eng-st.cu.edu.eg
 % this function is usd to show the table that player will play on it and the table is the matrix that contain the data of the player
-%made by diana tarek
+
 
 fprintf('\n')
 fprintf('----1------2------3------4------5------6------7----\n')

@@ -1,7 +1,11 @@
 function full=board_full(board)
-%this function checks if the board is full or not
+%connect 4
 %made by Abdelrahman Hamdy
-%DATE 10\1\2020
+%code:1200906
+%email : abdelrahman.osman02@eng-st.cu.edu.eg
+%this function checks if the board is full or not
+
+
 
 full = 0;
 

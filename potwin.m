@@ -1,6 +1,9 @@
 function [col,row] = potwin(board)
-%this function searches for a potential winning places
-%made by moaaz tarek
+%connect4
+%made by : moaaz tarek 
+%code: 1200871
+%email: moaaz.mohamed02@eng-st.cu.edu.eg
+%this function searches for a potential winning placesand return the row and column of the place
 
 %initalise counter values
 
