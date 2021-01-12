@@ -6,6 +6,4 @@ function board = restarting(board)
 %restarting is a function to provide a clear neat board again if the player(s) wishes to play again.
 
         board=zeros(6,7);
-    end
-end
 end
