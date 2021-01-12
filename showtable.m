@@ -9,10 +9,10 @@ function showtable ( table )
 fprintf('\n')
 fprintf('----1------2------3------4------5------6------7----\n')
 for r = 1 : 6
-    % this loop used for numbers of rows that show in output
+    % this loop used for numbers of rows 
     fprintf('|');
     for c = 1 : 7
-        % this loop used for numbers of columns that show in output
+        % this loop used for numbers of columns
 
         if table(r,c )== 0
             fprintf('   _   ');
